@@ -1,7 +1,4 @@
 
-
-/**
-// Allows line breaks with the return button
 marked.setOptions({
   breaks: true
 });
@@ -24,3 +21,42 @@ class App extends React.Component {
   }
   render() {
     return (
+      <div>
+        <h1 className="title">React Markdown Previewer</h1>
+        <div className="AppWrap">
+          <div className="EditorWrap">
+            <Toolbar text="Editor" />
+            <Editor
+              markdown={this.state.markdown}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="PreviewWrap">
+            <Toolbar text="Preview" />
+            <Preview markdown={this.state.markdown} />
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+const Toolbar = props => {
+  return (
+    <div className="toolbar">
+      {props.text}
+    </div>
+  );
+};
+
+const Editor = props => {
+  return (
+    <textarea
+      id="editor"
+      value={props.markdown}
+      onChange={props.onChange}
+      type="text"
+    />
+  );
+};
+**/
