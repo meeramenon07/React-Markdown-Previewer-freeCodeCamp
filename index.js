@@ -60,3 +60,24 @@ const Editor = props => {
   );
 };
 **/
+
+
+const Preview = props => {
+  return (
+    <div
+      id="preview"
+      dangerouslySetInnerHTML={{
+        __html: marked(props.markdown, { renderer: renderer })
+      }}
+    />
+  );
+};
+
+const placeholder = `# My first  React Project!
+## This is a Markdown Previewer..
+
+### And browse some more items here:
+Heres some code, \`<div></div>\`, between 2 backticks.
+
+\`\`\`
+// this is multi-line code:
